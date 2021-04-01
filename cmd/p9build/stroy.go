@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 	
-	"github.com/p9c/pod/pkg/appdata"
-	"github.com/p9c/pod/pkg/apputil"
+	"github.com/p9c/parallelcoin/pkg/appdata"
+	"github.com/p9c/parallelcoin/pkg/apputil"
 	
 	"gopkg.in/src-d/go-git.v4"
 	"gopkg.in/src-d/go-git.v4/plumbing"
@@ -189,16 +189,16 @@ func writeVersionFile() bool {
 	}
 	Tag = maxString
 	_, file, _, _ := runtime.Caller(0)
-	fmt.Fprintln(os.Stderr, "file", file)
+	// fmt.Fprintln(os.Stderr, "file", file)
 	urlSplit := strings.Split(URL, "/")
-	fmt.Fprintln(os.Stderr, "urlSplit", urlSplit)
+	// fmt.Fprintln(os.Stderr, "urlSplit", urlSplit)
 	baseFolder := urlSplit[len(urlSplit)-1]
-	fmt.Fprintln(os.Stderr, "baseFolder", baseFolder)
+	// fmt.Fprintln(os.Stderr, "baseFolder", baseFolder)
 	splitPath := strings.Split(file, baseFolder)
-	fmt.Fprintln(os.Stderr, "splitPath", splitPath)
+	// fmt.Fprintln(os.Stderr, "splitPath", splitPath)
 	PathBase := filepath.Join(splitPath[0], baseFolder) + string(filepath.Separator)
 	PathBase = strings.ReplaceAll(PathBase, "\\", "\\\\")
-	fmt.Fprintln(os.Stderr, "PathBase", PathBase)
+	// fmt.Fprintln(os.Stderr, "PathBase", PathBase)
 	versionFile := `package version
 
 import "fmt"
